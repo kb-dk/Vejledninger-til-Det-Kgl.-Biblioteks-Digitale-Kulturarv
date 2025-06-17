@@ -11,6 +11,6 @@ Det meste af indholdet på denne side består af uddrag af større datasæt, Pyt
 ## LOAR (Library Open Access Repository)
 LOAR er en platform, som Det Kgl. Bibliotek benytter til at udgive Det Kgl. Biblioteks åbne datasæt til brug i forskning og undervisning. På platformen vil vi kontinuerligt formidle nye datasæt. Datasættene er licenseret i Public Domain.  
 
-
+## Indhold
 ```{tableofcontents}
 ```
