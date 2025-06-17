@@ -1,0 +1,13 @@
+jupyter-book
+matplotlib
+numpy
+pandas
+urllib
+BeautifulSoup
+re
+nltk
+requests
+os
+random
+Counter
+math
