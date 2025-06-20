@@ -4,7 +4,4 @@
 format: jb-book
 root: intro
 chapters:
-- file: markdown
-- file: notebooks
-- file: markdown-notebooks
-- file: explore the mekuni adl dataset
+- file: Udforsk mekuni adl datasættet
