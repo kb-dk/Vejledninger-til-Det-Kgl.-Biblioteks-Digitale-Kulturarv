@@ -3,5 +3,13 @@
 
 format: jb-book
 root: intro
-chapters:
-- file: Udforsk mekuni adl datasættet
+
+parts:
+  - caption: ADL (Arkiv for Dansk Litteratur)
+    chapters:
+    - file: Udforsk mekuni adl datasættet
+
+  - caption: Flora Danica
+    chapters:
+    - file: Udforsk Flora Danica datasættet
+    - file: Ændre størrelsen på Flora Danicas tif filer

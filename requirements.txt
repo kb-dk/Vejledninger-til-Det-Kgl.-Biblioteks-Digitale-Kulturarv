@@ -11,3 +11,5 @@ os
 random
 Counter
 math
+plotly.express
+requests
