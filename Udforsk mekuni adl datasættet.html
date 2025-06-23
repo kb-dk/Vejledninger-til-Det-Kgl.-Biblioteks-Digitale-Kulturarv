@@ -60,6 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Udforsk mekuni adl datasættet';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Udforsk Flora Danica-datasættet" href="Udforsk%20Flora%20Danica%20datas%C3%A6ttet.html" />
     <link rel="prev" title="Vejledningsmateriale til Det Kgl. Biblioteks digitale kulturarv" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -178,8 +179,14 @@
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">ADL (Arkiv for Dansk Litteratur)</span></p>
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Udforsk mekuni adl datasættet</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Flora Danica</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Udforsk%20Flora%20Danica%20datas%C3%A6ttet.html">Udforsk Flora Danica-datasættet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%C3%86ndre%20st%C3%B8rrelsen%20p%C3%A5%20Flora%20Danicas%20tif%20filer.html">Ændre størrelsen på billeder</a></li>
 </ul>
 
     </div>
@@ -415,7 +422,7 @@ document.write(`
 <p>Indlæs datasættet fra en CSV-fil til en pandas DataFrame</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;adl_dataset_metadata.csv&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;mekuni_adl_data/adl_dataset_metadata.csv&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -487,7 +494,7 @@ document.write(`
 <h2>Byg BeautifulSoup-elementer ud fra XML-dataene<a class="headerlink" href="#byg-beautifulsoup-elementer-ud-fra-xml-dataene" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Udtræk en liste af XML fil navne fra DataFrame</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Udtræk en liste af XML fil navne fra DataFramen</span>
 <span class="n">xml_file_names</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;xml_file_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
 
 <span class="c1"># Byg en funktion, der kan indlæse en XML fil med BeautifulSoup biblioteket</span>
@@ -495,7 +502,7 @@ document.write(`
 
     <span class="k">try</span><span class="p">:</span>
     
-        <span class="n">file_path</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;./adl_xml_files_sample_set/&#39;</span> <span class="o">+</span> <span class="n">file</span>
+        <span class="n">file_path</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;mekuni_adl_data/adl_xml_files_sample_set/&#39;</span> <span class="o">+</span> <span class="n">file</span>
     
         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
             <span class="n">xml_content</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
@@ -508,7 +515,7 @@ document.write(`
         <span class="k">pass</span>
 
 <span class="c1"># Lav en liste af BeautifulSoup objects for hver XML fil</span>
-<span class="n">xml_soups</span> <span class="o">=</span> <span class="p">[</span><span class="n">get_xml_file</span><span class="p">(</span><span class="n">file</span><span class="p">)</span> <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">xml_file_names</span> <span class="p">]</span>
+<span class="n">xml_soups</span> <span class="o">=</span> <span class="p">[</span><span class="n">get_xml_file</span><span class="p">(</span><span class="n">file</span><span class="p">)</span> <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">xml_file_names</span><span class="p">]</span>
 
 <span class="c1"># Lav en ny DataFrame med XML filnavne og deres tilhørenden BeautifulSoup objects</span>
 <span class="n">df_soup</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;xml_file_name&#39;</span><span class="p">:</span> <span class="n">xml_file_names</span><span class="p">,</span>
@@ -522,8 +529,8 @@ document.write(`
 </section>
 <section id="parse-data-fra-xml">
 <h2>Parse data fra xml<a class="headerlink" href="#parse-data-fra-xml" title="Link to this heading">#</a></h2>
-<p>Dataen i kolonnen “soup” er BeautifulSoup-elementer, og vi kan parse tekstdata inde i de forskellige tags ved hjælp af BeautifulSoup-metoderne find_all og get_text.
-Gennemgang af soup / xml viste, at parsing af body-tags og efterfølgende parsing af “p” og “l” tags inde i “body”-tags ville give os mest af den relevante tekstdata, fordi det udelader størstedelen af redaktørnoterne.</p>
+<p>Dataen i kolonnen “soup” er BeautifulSoup-elementer, og vi kan læse tekstdataen, som ligger i de forskellige tags ved hjælp af BeautifulSoup-metoderne .find_all() og .get_text().
+Gennemgang af soup / xml viste, at læsning af body-tags og efterfølgende læsning af “p” og “l” tags inde i “body”-tags giver os mest af den relevante tekstdata, fordi vi på den måde udelader størstedelen af redaktørnoterne.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Skriv en funktion der trækker text data ud fra specifikke tags (body, p, and l) i XML&#39;en</span>
@@ -708,7 +715,7 @@ Gennemgang af soup / xml viste, at parsing af body-tags og efterfølgende parsin
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Indlæs danske stopword fra en txt fil</span>
-<span class="n">sw_file</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;stopwords/adl_dataset_stopwords.txt&#39;</span>
+<span class="n">sw_file</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;mekuni_adl_data/stopwords/adl_dataset_stopwords.txt&#39;</span>
 
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">sw_file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">stop_words</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
@@ -917,6 +924,15 @@ Gennemgang af soup / xml viste, at parsing af body-tags og efterfølgende parsin
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">Vejledningsmateriale til Det Kgl. Biblioteks digitale kulturarv</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="Udforsk%20Flora%20Danica%20datas%C3%A6ttet.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Udforsk Flora Danica-datasættet</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
