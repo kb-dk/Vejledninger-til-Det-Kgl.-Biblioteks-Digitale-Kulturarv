@@ -7,9 +7,10 @@ root: intro
 parts:
   - caption: ADL (Arkiv for Dansk Litteratur)
     chapters:
-    - file: Udforsk mekuni adl datasættet
+    - file: Udforsk ADL datasættet
 
   - caption: Flora Danica
     chapters:
-    - file: Udforsk Flora Danica datasættet
+    - file: Rens Flora Danica-datasættet
+    - file: Visualisering af Flora Danicas metadata
     - file: Ændre størrelsen på Flora Danicas tif filer
